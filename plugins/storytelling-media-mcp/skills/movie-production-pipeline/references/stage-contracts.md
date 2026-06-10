@@ -207,6 +207,22 @@ Expected output:
 - safety boundaries for tactical content,
 - suggested fictionalization changes.
 
+### Screenplay Discipline Planner
+
+Role: convert research and sensitivity findings into enforceable screenplay-writing rules before chapter architecture.
+
+Before producing this pass, read `screenplay-discipline.md`.
+
+Expected output:
+
+- scene contract fields required for Stage 3,
+- POV and information-release rules,
+- dialogue and language-tag discipline,
+- action prose constraints,
+- continuity ledger requirements,
+- draft pass order,
+- chapter architecture checks that must be satisfied before Stage 4.
+
 ## Stage 3: Chapter Architecture
 
 ### Chapter Architect
@@ -220,6 +236,8 @@ Expected output:
 - conflict escalation,
 - required character appearances,
 - transition in/out,
+- scene contract coverage,
+- information-release and POV plan,
 - approval questions.
 
 ### Visual Geography Analyst

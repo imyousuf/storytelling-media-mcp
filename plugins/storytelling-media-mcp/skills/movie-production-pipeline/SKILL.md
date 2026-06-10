@@ -35,12 +35,13 @@ Use these stages in order unless the user explicitly jumps to a later stage:
    - Goal: identify story spine, character anchors, locations, themes, constraints, and missing data.
 
 2. **Research & Sensitivity**
-   - Outputs: `production/02_research/research_notes.md`, `sensitivity_notes.md`, `authenticity_checklist.md`.
-   - Goal: ground geography, culture, language, production realism, and legal/sensitivity risks.
+   - Outputs: `production/02_research/research_notes.md`, `sensitivity_notes.md`, `authenticity_checklist.md`, `screenplay_discipline.md`.
+   - Goal: ground geography, culture, language, production realism, legal/sensitivity risks, and screenplay-writing discipline before chapter architecture.
+   - For screenplay discipline rules, read `references/screenplay-discipline.md` before completing Stage 2 or starting Stage 3.
 
 3. **Chapter Architecture**
    - Outputs: `production/03_chapters/chapters.json`, `chapter_beats.md`, `approval_packet.md`.
-   - Goal: lock chapter-level purpose, emotional movement, visual palette, continuity anchors, and transition logic.
+   - Goal: lock chapter-level purpose, emotional movement, visual palette, continuity anchors, transition logic, and scene-writing contracts that follow the approved Stage 2 screenplay discipline.
 
 4. **Screenplay Development**
    - Outputs per approved chapter: `production/04_screenplay/chapter_##.md`, plus `dialogue_notes.md`.
