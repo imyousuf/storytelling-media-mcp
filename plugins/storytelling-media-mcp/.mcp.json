@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "storytelling-media": {
+      "cwd": ".",
       "command": "bash",
       "args": ["./scripts/run-server.sh"],
       "env_vars": [
