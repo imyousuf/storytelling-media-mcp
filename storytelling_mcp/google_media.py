@@ -23,6 +23,7 @@ DEFAULT_IMAGE_MODEL = IMAGE_MODELS["flash"]
 DEFAULT_VIDEO_MODEL = "veo-3.1-generate-001"
 PROJECT_ENV_VARS = ("GOOGLE_CLOUD_PROJECT", "GOOGLE_CLOUD_QUOTA_PROJECT", "GCLOUD_PROJECT")
 LOCATION_ENV_VARS = ("GOOGLE_CLOUD_LOCATION", "GOOGLE_CLOUD_REGION", "GCLOUD_LOCATION")
+VERTEX_GLOBAL_IMAGE_MODELS = {"gemini-3.1-flash-image", "gemini-3.1-flash-image-preview", "gemini-3-pro-image"}
 
 
 class GoogleMediaError(RuntimeError):
@@ -54,14 +55,23 @@ class GoogleMediaClient:
         model: str = DEFAULT_IMAGE_MODEL,
         reference_image_paths: list[str] | None = None,
     ) -> dict[str, Any]:
-        contents: list[Any] = [prompt]
-        for image_path in reference_image_paths or []:
-            contents.append(Image.open(image_path))
+        parts: list[Any] = [
+            _image_part(Path(image_path)) for image_path in reference_image_paths or []
+        ]
+        parts.append(types.Part.from_text(text=prompt))
+        contents: list[Any] = [types.Content(role="user", parts=parts)]
 
-        client = self._client()
+        client = self._client(
+            location=_image_location_for_model(model, self.location),
+            api_version=_image_api_version_for_model(model),
+        )
         response = client.models.generate_content(
             model=model,
             contents=contents,
+            config=types.GenerateContentConfig(
+                response_modalities=["TEXT", "IMAGE"],
+                max_output_tokens=32768,
+            ),
         )
 
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -145,7 +155,7 @@ class GoogleMediaClient:
             "video_uri": getattr(generated_video.video, "uri", None),
         }
 
-    def _client(self) -> genai.Client:
+    def _client(self, *, location: str | None = None, api_version: str | None = None) -> genai.Client:
         if self.auth_mode in {"auto", "api_key"} and self.api_key:
             return genai.Client(api_key=self.api_key)
 
@@ -153,10 +163,12 @@ class GoogleMediaClient:
             raise GoogleMediaError(
                 "GOOGLE_CLOUD_PROJECT is required when using auth_mode='adc'."
             )
+        http_options = types.HttpOptions(api_version=api_version) if api_version else None
         return genai.Client(
             vertexai=True,
             project=self.user_project,
-            location=self.location,
+            location=location or self.location,
+            http_options=http_options,
         )
 
 
@@ -175,3 +187,31 @@ def _mime_type_for_output(path: Path) -> str:
     if suffix == ".webp":
         return "image/webp"
     return "image/png"
+
+
+def _mime_type_for_input(path: Path) -> str:
+    suffix = path.suffix.lower()
+    if suffix in {".jpg", ".jpeg"}:
+        return "image/jpeg"
+    if suffix == ".webp":
+        return "image/webp"
+    return "image/png"
+
+
+def _image_part(path: Path) -> types.Part:
+    return types.Part.from_bytes(
+        data=path.read_bytes(),
+        mime_type=_mime_type_for_input(path),
+    )
+
+
+def _image_location_for_model(model: str, default_location: str) -> str:
+    if model in VERTEX_GLOBAL_IMAGE_MODELS:
+        return "global"
+    return default_location
+
+
+def _image_api_version_for_model(model: str) -> str | None:
+    if model in VERTEX_GLOBAL_IMAGE_MODELS:
+        return "v1"
+    return None
