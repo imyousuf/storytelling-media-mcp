@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "storytelling-media": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/scripts/run-server.sh",
+      "env": {
+        "GOOGLE_CLOUD_PROJECT": "${GOOGLE_CLOUD_PROJECT:-}",
+        "GOOGLE_CLOUD_LOCATION": "${GOOGLE_CLOUD_LOCATION:-us-central1}",
+        "GOOGLE_GENAI_USE_VERTEXAI": "${GOOGLE_GENAI_USE_VERTEXAI:-true}",
+        "GEMINI_API_KEY": "${GEMINI_API_KEY:-}",
+        "GOOGLE_API_KEY": "${GOOGLE_API_KEY:-}",
+        "STORYTELLING_MEDIA_MCP_ROOT": "${STORYTELLING_MEDIA_MCP_ROOT:-}",
+        "STORYTELLING_MEDIA_MCP_DATA_DIR": "${CLAUDE_PLUGIN_DATA}"
+      }
+    }
+  }
+}

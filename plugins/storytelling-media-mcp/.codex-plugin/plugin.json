@@ -1,0 +1,25 @@
+{
+  "name": "storytelling-media-mcp",
+  "version": "0.1.0",
+  "description": "MCP tools for Nano Banana image generation, Veo video generation, and FFmpeg stitching.",
+  "author": {
+    "name": "imyousuf",
+    "url": "https://github.com/imyousuf"
+  },
+  "homepage": "https://github.com/imyousuf/storytelling-media-mcp",
+  "repository": "https://github.com/imyousuf/storytelling-media-mcp",
+  "license": "Apache-2.0",
+  "keywords": ["mcp", "video", "image-generation", "veo", "nano-banana"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Storytelling Media MCP",
+    "shortDescription": "Generate images and videos through local MCP tools.",
+    "longDescription": "Storytelling Media MCP provides Codex with Nano Banana image generation, Veo video generation, and FFmpeg video stitching tools through a local stdio MCP server.",
+    "developerName": "imyousuf",
+    "category": "Productivity",
+    "capabilities": ["MCP tools", "Image generation", "Video generation", "Video stitching"],
+    "websiteURL": "https://github.com/imyousuf/storytelling-media-mcp",
+    "defaultPrompt": "Use the Storytelling Media MCP tools when I ask for AI image generation, Veo video generation, or stitching video clips."
+  }
+}

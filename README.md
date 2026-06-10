@@ -90,6 +90,27 @@ Example stdio server config using ADC/Vertex:
 }
 ```
 
+## Agent Plugins
+
+This repo includes installable plugin metadata for both Claude Code and Codex.
+
+Claude Code:
+
+```text
+/plugin marketplace add imyousuf/storytelling-media-mcp
+/plugin install storytelling-media-mcp@storytelling-media
+```
+
+Codex:
+
+```bash
+codex plugin marketplace add imyousuf/storytelling-media-mcp --sparse .agents/plugins --sparse plugins
+```
+
+Then open `/plugins` in Codex and install `storytelling-media-mcp` from the `storytelling-media` marketplace.
+
+The plugin launcher uses `STORYTELLING_MEDIA_MCP_ROOT` for local development. If that variable is unset, it creates a plugin-local virtual environment and installs this package from GitHub before starting the MCP server.
+
 ## Tools
 
 - `nano_banana_generate_image`: text-to-image or text-and-image-to-image.

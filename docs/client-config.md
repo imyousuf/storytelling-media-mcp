@@ -43,6 +43,25 @@ For ADC/Vertex usage:
 
 Use the same command, arguments, working directory, and environment variables in Claude Code's MCP server configuration.
 
+## Plugin Installation
+
+This repository also ships plugin marketplace metadata for both agents.
+
+Claude Code:
+
+```text
+/plugin marketplace add imyousuf/storytelling-media-mcp
+/plugin install storytelling-media-mcp@storytelling-media
+```
+
+Codex:
+
+```bash
+codex plugin marketplace add imyousuf/storytelling-media-mcp --sparse .agents/plugins --sparse plugins
+```
+
+Then open `/plugins` in Codex and install `storytelling-media-mcp` from the `storytelling-media` marketplace.
+
 ## Notes
 
 - The image and video tools call Google APIs through the GenAI SDK. Use either `GEMINI_API_KEY` or ADC/Vertex project env vars.

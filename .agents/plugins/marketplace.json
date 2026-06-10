@@ -1,0 +1,20 @@
+{
+  "name": "storytelling-media",
+  "interface": {
+    "displayName": "Storytelling Media"
+  },
+  "plugins": [
+    {
+      "name": "storytelling-media-mcp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/storytelling-media-mcp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "storytelling-media": {
+      "command": "bash",
+      "args": ["./scripts/run-server.sh"],
+      "env_vars": [
+        "GOOGLE_CLOUD_PROJECT",
+        "GOOGLE_CLOUD_LOCATION",
+        "GOOGLE_GENAI_USE_VERTEXAI",
+        "GEMINI_API_KEY",
+        "GOOGLE_API_KEY",
+        "STORYTELLING_MEDIA_MCP_ROOT",
+        "STORYTELLING_MEDIA_MCP_DATA_DIR"
+      ],
+      "startup_timeout_sec": 60,
+      "tool_timeout_sec": 1200
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "storytelling-media",
+  "owner": {
+    "name": "imyousuf"
+  },
+  "description": "Claude Code plugins for the Storytelling Media MCP server.",
+  "plugins": [
+    {
+      "name": "storytelling-media-mcp",
+      "displayName": "Storytelling Media MCP",
+      "source": "./plugins/storytelling-media-mcp",
+      "description": "Run Nano Banana image generation, Veo video generation, and FFmpeg stitching through MCP.",
+      "version": "0.1.0",
+      "author": {
+        "name": "imyousuf"
+      },
+      "repository": "https://github.com/imyousuf/storytelling-media-mcp",
+      "license": "Apache-2.0",
+      "category": "Media",
+      "tags": ["mcp", "video", "image-generation", "veo", "nano-banana"]
+    }
+  ]
+}
