@@ -58,7 +58,8 @@ class GoogleMediaClient:
         for image_path in reference_image_paths or []:
             contents.append(Image.open(image_path))
 
-        response = self._client().models.generate_content(
+        client = self._client()
+        response = client.models.generate_content(
             model=model,
             contents=contents,
         )
