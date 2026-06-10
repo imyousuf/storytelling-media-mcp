@@ -19,7 +19,9 @@ if [[ ! -x "$venv_dir/bin/python" ]]; then
   python3 -m venv "$venv_dir"
 fi
 
-"$venv_dir/bin/python" -m pip install --quiet --upgrade \
-  "git+https://github.com/imyousuf/storytelling-media-mcp.git"
+if ! "$venv_dir/bin/python" -c "import storytelling_mcp" >/dev/null 2>&1; then
+  "$venv_dir/bin/python" -m pip install --quiet \
+    "git+https://github.com/imyousuf/storytelling-media-mcp.git"
+fi
 
 exec "$venv_dir/bin/python" -m storytelling_mcp

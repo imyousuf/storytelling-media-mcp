@@ -1,7 +1,7 @@
 {
   "name": "storytelling-media-mcp",
   "displayName": "Storytelling Media MCP",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "MCP tools for Nano Banana image generation, Veo video generation, and FFmpeg stitching.",
   "author": {
     "name": "imyousuf",
