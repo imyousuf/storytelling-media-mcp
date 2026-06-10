@@ -1,0 +1,4 @@
+interface:
+  display_name: "Movie Production Pipeline"
+  short_description: "Iterative multi-agent movie pipeline"
+  default_prompt: "Use $movie-production-pipeline to turn this director's brief into a staged movie production plan."

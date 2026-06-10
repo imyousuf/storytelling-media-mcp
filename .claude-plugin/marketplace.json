@@ -10,7 +10,7 @@
       "displayName": "Storytelling Media MCP",
       "source": "./plugins/storytelling-media-mcp",
       "description": "Run Nano Banana image generation, Veo video generation, and FFmpeg stitching through MCP.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": {
         "name": "imyousuf"
       },

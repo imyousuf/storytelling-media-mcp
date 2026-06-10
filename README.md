@@ -111,6 +111,8 @@ Then open `/plugins` in Codex and install `storytelling-media-mcp` from the `sto
 
 The plugin launcher uses `STORYTELLING_MEDIA_MCP_ROOT` for local development. If that variable is unset, it creates a plugin-local virtual environment and installs this package from GitHub before starting the MCP server.
 
+The plugin also includes `$movie-production-pipeline`, a gated multi-agent workflow for turning a director's brief into stage-approved production artifacts. It expects user feedback at each stage before moving forward.
+
 ## Tools
 
 - `nano_banana_generate_image`: text-to-image or text-and-image-to-image.

@@ -62,6 +62,8 @@ codex plugin marketplace add imyousuf/storytelling-media-mcp --sparse .agents/pl
 
 Then open `/plugins` in Codex and install `storytelling-media-mcp` from the `storytelling-media` marketplace.
 
+After installation, use `$movie-production-pipeline` for the staged director's-brief-to-production workflow, or use the MCP tools directly for image generation, video generation, and stitching.
+
 ## Notes
 
 - The image and video tools call Google APIs through the GenAI SDK. Use either `GEMINI_API_KEY` or ADC/Vertex project env vars.
